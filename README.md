@@ -6,5 +6,5 @@
 - To start pulseaudio receiving daemon on os x - take note of the auth-anonymous=1 argument passed to the module. This allows for any user to send audio to the server and is required to pass audio from the container: `pulseaudio --load="module-native-protocol-tcp auth-anonymous=1" --exit-idle-time=-1 --daemon`
 - To establish pulseaudio tunnel: `ssh -R 24713:localhost:4713 root@localhost -p 2222`
 - To start gqrx from within xterm spawned from within Xquartz: `ssh root@localhost -p 2222` then `PULSE_SERVER="tcp:localhost:24713" gqrx`
-
+- When you start gqrx you will see all the modules it supports. If you have compiled gr-osmosdr or used the binary in the repo, uninstalled the one that comes with the container `apt remove gr-osmosdr`, you will get output that lists all the modules supported. You need to see airspy, airspyhf, and spyserver. Relevant thread: https://groups.google.com/g/gqrx/c/aVaD2uGi0Ng and https://pastebin.com/MrAnCLhC and https://www.reddit.com/r/RTLSDR/comments/8sgrlc/gqrx_soon_supporting_airspycom_spyservers_it_works/
 - The gr-osmosdr.tgz archive contains a compiled version of the plugin with all the soapy, airspy, and spyserver support for the arm64 arch.
